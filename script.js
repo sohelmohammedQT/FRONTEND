@@ -15,7 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 1000);
   }, 2000);
 
-  const socket = io('http://localhost:5000', {
+  // Update the URL to connect to the backend
+  const socket = io('https://backennd-production.up.railway.app', {
     transports: ['websocket'],
     reconnection: true,
     reconnectionAttempts: 5,
@@ -65,7 +66,8 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       socket.emit('logout', username);
 
-      const response = await fetch('http://localhost:5000/api/logout', {
+      // Update the logout API call to use the backend URL
+      const response = await fetch('https://backennd-production.up.railway.app/api/logout', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
